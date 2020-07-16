@@ -18,8 +18,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <RepositoryUrl>https://github.com/sabatex/ntics.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    
-  </PropertyGroup>
+    </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
