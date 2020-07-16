@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "S6qx38xzxdRw3DqXWK3efRh2fM8UIke2ImGuDVSGWnfAsEXAhc9T6ff2TlKu7iYvXM1b6WRWDAvX+RLIYf6pfQ==",
+  "success": true,
+  "projectFilePath": "c:\\Users\\serhiy\\source\\GitHub\\sabatex\\V1C77\\src\\V1C77.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\serhiy\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\serhiy\\.nuget\\packages\\microsoft.extensions.localization.abstractions\\3.1.5\\microsoft.extensions.localization.abstractions.3.1.5.nupkg.sha512",
+    "C:\\Users\\serhiy\\.nuget\\packages\\ntics\\3.1.3.2\\ntics.3.1.3.2.nupkg.sha512"
+  ],
+  "logs": []
+}
