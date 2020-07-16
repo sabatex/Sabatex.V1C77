@@ -12,12 +12,12 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
     <PackageId>sabatex.V1C77</PackageId>
-    <PackageReleaseNotes>packages dependencies update</PackageReleaseNotes>
+    <PackageReleaseNotes>The namespace changed to sabatex</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <RepositoryUrl>https://github.com/sabatex/ntics.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/sabatex/V1C77.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     </PropertyGroup>
 
