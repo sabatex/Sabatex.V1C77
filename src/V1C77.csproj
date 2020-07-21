@@ -8,11 +8,11 @@
     <Company>sabatex on git</Company>
     <Description>COM connection to 1C7.7</Description>
     <Copyright>2019, Serhiy Lakas</Copyright>
-    <Version>3.1.4</Version>
+    <Version>3.1.5</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
     <PackageId>sabatex.V1C77</PackageId>
-    <PackageReleaseNotes>The namespace changed to sabatex</PackageReleaseNotes>
+    <PackageReleaseNotes>Add SetProperty</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>

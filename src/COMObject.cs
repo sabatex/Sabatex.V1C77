@@ -182,8 +182,6 @@ namespace sabatex.V1C77
                 return 0;
             }
         }
-
-
         public uint? GetPropertyUint(string PropertyName)
         {
             string result = GetPropertyString(PropertyName);
@@ -203,6 +201,9 @@ namespace sabatex.V1C77
 
         }
 
+        public void SetProperty(string propName,object value)=>OLE1C77Function(propName,BindingFlags.SetProperty,Handle,value);
+ 
+
         public int MethodInt(string MethodName)
         {
             try
@@ -216,7 +217,6 @@ namespace sabatex.V1C77
             }
 
         }
-
         public int MethodInt(string MethodName, params object[] args)
         {
             try
@@ -233,7 +233,6 @@ namespace sabatex.V1C77
             }
 
         }
-
         public double MethodDouble(string MethodName, params object[] args)
         {
             try
@@ -248,7 +247,6 @@ namespace sabatex.V1C77
 
 
         }
-
         public string MethodString(string MethodName, params object[] args)
         {
             try
@@ -263,7 +261,6 @@ namespace sabatex.V1C77
 
 
         }
-
         public GlobalObject1C77 GLOBAL
         {
             get 
