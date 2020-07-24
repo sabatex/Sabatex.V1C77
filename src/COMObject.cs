@@ -38,12 +38,13 @@ namespace sabatex.V1C77
                 else
                     normalArgs[i] = Args[i];
             }
-            //if (normalArgs.Length == 0) normalArgs = null;
+            if (normalArgs.Length == 0) normalArgs = null;
 
 
             try
             {
                 var obj = Handle.GetType().InvokeMember(FuncName, invokeAttr, null, Handle, normalArgs);
+                if (obj == null) return null;
                 if (Marshal.IsComObject(obj))
                 {
                     var comObj = new COMObject(this,obj);
