@@ -8,10 +8,13 @@
     <Company>sabatex on git</Company>
     <Description>COM connection to 1C7.7</Description>
     <Copyright>2019, Serhiy Lakas</Copyright>
-    <Version>3.1.7</Version>
+    <Version>3.1.8</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
     <PackageId>sabatex.V1C77</PackageId>
+    <AssemblyName>sabatex.V1C77</AssemblyName>
+    <RootNamespace>sabatex.V1C77</RootNamespace>
+
     <PackageReleaseNotes>Add SetProperty</PackageReleaseNotes>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
