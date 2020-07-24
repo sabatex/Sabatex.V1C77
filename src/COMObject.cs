@@ -202,7 +202,7 @@ namespace sabatex.V1C77
 
         }
 
-        public void SetProperty(string propName,object value)=>OLE1C77Function(propName,BindingFlags.SetProperty,Handle,value);
+        public void SetProperty(string propName,object value)=>OLE1C77Function(propName,BindingFlags.PutDispProperty,Handle,new object[]{value});
  
 
         public int MethodInt(string MethodName)
