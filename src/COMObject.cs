@@ -38,7 +38,7 @@ namespace sabatex.V1C77
                 else
                     normalArgs[i] = Args[i];
             }
-            if (normalArgs.Length == 0) normalArgs = null;
+            //if (normalArgs.Length == 0) normalArgs = null;
 
 
             try
