@@ -1,0 +1,39 @@
+name: sabatex.V1C77.Models
+
+on:
+  push:
+    branches: 
+      - main
+    paths:
+      - 'src/sabatex.V1C77.Models/sabatex.V1C77.Models.csproj'
+
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+           dotnet-version: 5.0.100
+     
+      #- name: Install dependencies
+      #  run: dotnet restore
+      #- name: Build
+      #  run: dotnet build --configuration Release --no-restore
+      #- name: Test
+      #  run: dotnet test --no-restore --verbosity normal
+
+      # Publish V1C8
+      - name: publish on version change
+        id: publish_nuget
+        uses: rohith/publish-nuget@v2
+        with:
+          # Filepath of the project to be packaged, relative to root of repository
+          PROJECT_FILE_PATH: 'src/sabatex.V1C77.Models/sabatex.V1C77.Models.csproj'
+          # API key to authenticate with NuGet server
+          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+          # Flag to toggle pushing symbols along with nuget package to the server, disabled by default
+          INCLUDE_SYMBOLS: false
