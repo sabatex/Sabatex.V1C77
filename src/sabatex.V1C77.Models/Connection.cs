@@ -10,7 +10,7 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
-namespace sabatex.V1C77
+namespace sabatex.V1C77.Models
 {
     [Serializable]
     public class Connection

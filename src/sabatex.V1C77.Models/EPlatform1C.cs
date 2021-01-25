@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace sabatex.V1C77
+namespace sabatex.V1C77.Models
 {
     [Flags]
     public enum EPlatform1C

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Authors>Serhiy Lakas</Authors>
+    <Description>Models for 1C7.7</Description>
+    <Company>sabatex on git</Company>
+    <PackageId>sabatex.V1C77.Models</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
+    <Version>5.1.0 </Version>
+    <Copyright>2020, Serhiy Lakas</Copyright>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <RepositoryUrl>https://github.com/sabatex/V1C.git</RepositoryUrl>
+    <RepositoryType>GIT</RepositoryType>
+  </PropertyGroup>
+
+</Project>

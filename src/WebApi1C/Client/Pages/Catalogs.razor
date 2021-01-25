@@ -1,0 +1,46 @@
+﻿@page "/catalogs"
+
+<h4>@(string.IsNullOrWhiteSpace(catalogMetadata.Синоним)? catalogMetadata.Идентификатор: catalogMetadata.Синоним)</h4>
+
+@if (catalogItems == null)
+{
+    <p>Loading ...</p>
+}
+else
+{
+<MudSimpleTable Dense="true">
+    <thead>
+        <tr>
+            <th>Код</th>
+            <th>Наименование</th>
+            @foreach (var attribute in catalogMetadata.Attributes)
+            {
+                <th>@(string.IsNullOrWhiteSpace(attribute.Синоним)?attribute.Идентификатор:attribute.Синоним)</th>
+            }
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var row in catalogItems)
+        {
+            var je = (JsonElement)row;
+            string code = je.GetProperty("Код").GetString();
+            string description = je.GetProperty("Наименование").GetString();
+            
+            <tr>
+                <td>@(code)</td>
+                <td>@(description)</td>
+                @foreach(var attribute in catalogMetadata.Attributes)
+                {
+                    <td><Attribute1C77 metadata="attribute" Value="je.GetProperty(attribute.Идентификатор)"/></td>
+                }
+
+            </tr>
+        }
+    </tbody>
+</MudSimpleTable>
+
+}
+
+
+

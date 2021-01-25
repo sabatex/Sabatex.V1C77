@@ -1,0 +1,32 @@
+﻿@page "/constants"
+@if (constantValues == null)
+{
+    <p>Loading ...</p>
+}
+else
+{
+    
+
+        <MudSimpleTable Dense="true">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Значение</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var con in constantValues)
+                {
+                    var metadata = constantMetadata[con.Key];
+                <tr>
+                    <td>@(string.IsNullOrWhiteSpace(metadata.Синоним)? metadata.Идентификатор: metadata.Синоним)</td>
+                    <td><Attribute1C77 metadata="metadata" Value="@((JsonElement)con.Value)" /></td>
+
+                </tr>
+                }
+            </tbody>
+         </MudSimpleTable>
+ 
+}
+
+
