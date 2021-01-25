@@ -4,9 +4,24 @@ using System.Text;
 
 namespace sabatex.V1C77.Models.Metadata
 {
-    public class RootMetadata1C77:ObjectMetadata1C77
+    public class RootMetadata1C77
     {
-        public string Name { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Id { get; set; }
+        /// <summary>
+        /// Идентификатор -идентификатор реквизита справочника (Cтрока)
+        /// </summary>
+        public string Идентификатор { get; set; }
+        /// <summary>
+        /// Синоним - синоним реквизита справочника (Cтрока)
+        /// </summary>
+        public string Синоним { get; set; }
+        /// <summary>
+        /// Комментарий - комментарий реквизита справочника (Cтрока)
+        /// </summary>
+        public string Комментарий { get; set; }
         public Dictionary<string, ConstantMetadata1C77> Константы { get; set; }
         public Dictionary<string, CatalogMetadata1C77> Справочники { get; set; }
         public Dictionary<string, CommonDocummentAttributeMetadata1C77> ОбщиеРеквизитыДокумента { get; set; }

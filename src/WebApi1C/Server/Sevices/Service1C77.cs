@@ -119,12 +119,12 @@ namespace WebApi1C.Server.Services
                                 rootMetadata = System.Text.Json.JsonSerializer.Deserialize<RootMetadata1C77>(s);
                             }
                             // get from 1c values
-                            var mc = GetMetadata1C77(connection, false);
+                            var mc = MetadataBuilder.GetMetadataDescriptor(connection);
 
                             if (mc.Идентификатор != rootMetadata?.Идентификатор || mc.Комментарий != rootMetadata?.Комментарий || mc.Синоним != rootMetadata?.Синоним)
                             {
                                 // ather config clear cashe
-                                rootMetadata = GetMetadata1C77(connection);
+                                rootMetadata = MetadataBuilder.GetMetadata(connection);
                                 var options = new System.Text.Json.JsonSerializerOptions
                                 {
                                     Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping

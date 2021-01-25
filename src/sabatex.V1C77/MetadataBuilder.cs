@@ -176,15 +176,10 @@ namespace sabatex.V1C77
             result.Values = values;
             return result;
         }
-        public static RootMetadata1C77 GetMetadataDescriptor(IGlobalContext com)
+        public static string GetMetadataDescriptor(IGlobalContext global)
         {
-            var metadataCOM = com.GlobalContext.GetProperty<ICOMObject1C77>("Metadata");
-            var result = new RootMetadata1C77();
-            result.Идентификатор = com.GetProperty<string>("Идентификатор");
-            result.Комментарий = com.GetProperty<string>("Комментарий");
-            result.Синоним = com.GetProperty<string>("Синоним");
-
-            return result;
+            var com = global.GetProperty<ICOMObject1C77>(metadataToken);
+            return $"{com.GetProperty<string>("Идентификатор")}-{com.GetProperty<string>("Комментарий")}-{com.GetProperty<string>("Синоним")}";
         }
    
         public static Dictionary<string,ConstantMetadata1C77> GetMetadataConstants(IGlobalContext global)
@@ -287,6 +282,7 @@ namespace sabatex.V1C77
         {
             var metadata = new RootMetadata1C77();
             var com = global.GetProperty<ICOMObject1C77>(metadataToken);
+            metadata.Id = GetMetadataDescriptor(global);
             metadata.Идентификатор = com.GetProperty<string>("Идентификатор");
             metadata.Комментарий = com.GetProperty<string>("Комментарий");
             metadata.Синоним = com.GetProperty<string>("Синоним");

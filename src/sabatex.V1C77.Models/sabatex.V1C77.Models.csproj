@@ -9,7 +9,7 @@
     <PackageId>sabatex.V1C77.Models</PackageId>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
-    <Version>5.1.0 </Version>
+    <Version>5.1.1 </Version>
     <Copyright>2020, Serhiy Lakas</Copyright>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>

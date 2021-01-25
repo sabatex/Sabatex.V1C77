@@ -48,6 +48,11 @@ namespace XUnitTestV1C77
         {
             var metadata = MetadataBuilder.GetMetadata(_connection.V1C77);
         }
+        [Fact]
+        public void GetMetadataDescriptor()
+        {
+            var metadata = MetadataBuilder.GetMetadataDescriptor(_connection.V1C77);
+        }
 
 
     }

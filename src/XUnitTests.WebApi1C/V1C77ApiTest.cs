@@ -41,30 +41,6 @@ namespace WebApi1C.XUnitTest
             }
         }
 
-        //private async Task  Start1C77()
-        //{
-        //    var client = _factory.CreateClient();
-        //    var response = await client.PostAsJsonAsync("/api/v1c77", true);
-        //    response.EnsureSuccessStatusCode(); // Status Code 200-299
-        //    response = await client.GetAsync("/api/v1c77/state");
-        //    response.EnsureSuccessStatusCode(); // Status Code 200-299
-        //    Assert.Equal("application/json; charset=utf-8",
-        //            response.Content.Headers.ContentType.ToString());
-        //    var state = await response.Content.ReadFromJsonAsync<Service1C77State>();
-        //    Assert.True(state.IsWorked);
-        //}
-        //private async Task Stop1C77()
-        //{
-        //    var client = _factory.CreateClient();
-        //    var response = await client.PostAsJsonAsync("/api/v1c77", false);
-        //    response.EnsureSuccessStatusCode(); // Status Code 200-299
-        //    response = await client.GetAsync("/api/v1c77/state");
-        //    response.EnsureSuccessStatusCode(); // Status Code 200-299
-        //    Assert.Equal("application/json; charset=utf-8",
-        //            response.Content.Headers.ContentType.ToString());
-        //    var state = await response.Content.ReadFromJsonAsync<Service1C77State>();
-        //    Assert.False(state.IsWorked);
-        //}
 
         private async Task<bool> isStarted1C77()
         { 
@@ -77,17 +53,6 @@ namespace WebApi1C.XUnitTest
             var state = await response.Content.ReadFromJsonAsync<Service1C77State>();
             return state.IsWorked;
         }
-
-        //[Fact]
-        //public async Task SetState()
-        //{
-        //    if (await isStarted1C77())
-        //    {
-        //        await Stop1C77();
-        //    }
-        //    await Start1C77();
-        //    await Stop1C77();
-        //}
 
         [Fact]
         public async Task GetMetadata()
