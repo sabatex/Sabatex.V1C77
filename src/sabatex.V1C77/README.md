@@ -5,6 +5,7 @@
    using sabatex.V1C77;
 
 пример использованя:
+---C#
 
          static void Main(string[] args)
         {
@@ -36,8 +37,7 @@
 
             }
         }  
-        
-
+ ---
 соответствие типов данных
   строка - string
   число  - double
