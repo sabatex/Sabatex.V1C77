@@ -121,7 +121,7 @@ namespace WebApi1C.Server.Services
                             // get from 1c values
                             var mc = MetadataBuilder.GetMetadataDescriptor(connection);
 
-                            if (mc.Идентификатор != rootMetadata?.Идентификатор || mc.Комментарий != rootMetadata?.Комментарий || mc.Синоним != rootMetadata?.Синоним)
+                            if (mc!= rootMetadata?.Id)
                             {
                                 // ather config clear cashe
                                 rootMetadata = MetadataBuilder.GetMetadata(connection);

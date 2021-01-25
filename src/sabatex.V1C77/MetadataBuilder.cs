@@ -190,7 +190,7 @@ namespace sabatex.V1C77
             for (int i = 0; i < count; i++)
             {
                 var metadata = GetConstantMetadata(com.Method<ICOMObject1C77>(constantToken, i + 1));
-                result.Add(metadata.Идентификатор.ToLower(), metadata);
+                result.Add(metadata.Идентификатор, metadata);
             }
             return result;
 
@@ -206,7 +206,7 @@ namespace sabatex.V1C77
                 try
                 {
                     var metadata = GetCatalogMetadata(com.Method<ICOMObject1C77>(catalogToken, i + 1));
-                    result.Add(metadata.Идентификатор.ToLower(), metadata);
+                    result.Add(metadata.Идентификатор, metadata);
                 }
                 catch (Exception e)
                 {
@@ -227,7 +227,7 @@ namespace sabatex.V1C77
                 try
                 {
                     var metadata = GetEnumMetadata(com.Method<ICOMObject1C77>(enumToken, i + 1));
-                    result.Add(metadata.Идентификатор.ToLower(), metadata);
+                    result.Add(metadata.Идентификатор, metadata);
                 }
                 catch (Exception e)
                 {
@@ -248,7 +248,7 @@ namespace sabatex.V1C77
                 try
                 {
                     var metadata = GetDocumentMetadata(com.Method<ICOMObject1C77>(documentToken, i + 1));
-                    result.Add(metadata.Идентификатор.ToLower(), metadata);
+                    result.Add(metadata.Идентификатор, metadata);
                 }
                 catch (Exception e)
                 {
@@ -268,7 +268,7 @@ namespace sabatex.V1C77
                 try
                 {
                     var metadata = GetCommonDocummentAttributeMetadata(com.Method<ICOMObject1C77>(commonDocumentAttributesToken, i + 1));
-                    result.Add(metadata.Идентификатор.ToLower(), metadata);
+                    result.Add(metadata.Идентификатор, metadata);
                 }
                 catch (Exception e)
                 {
