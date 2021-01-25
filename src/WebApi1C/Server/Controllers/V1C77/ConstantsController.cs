@@ -34,7 +34,7 @@ namespace WebApi1C.Server.Controllers.V1C77
             {
                 try
                 {
-                    result.Add(v.Идентификатор.ToLower(),_service1C77.GetConstant(v.Идентификатор)); 
+                    result.Add(v.Идентификатор,_service1C77.GetConstant(v.Идентификатор)); 
                 }
                 catch (Exception e)
                 {

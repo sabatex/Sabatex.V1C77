@@ -3,11 +3,17 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>6f49b104-bfe9-4b4c-8c9d-8d70d26e5fa4</UserSecretsId>
+    <Description>Web API for 1C7.7</Description>
+    <Product>Web API for 1C7.7</Product>
+    <Company>Sabatex on git</Company>
+    <Authors>Serhiy Lakas</Authors>
+    <Copyright>2021, Serhiy Lakas</Copyright>
+    <Version>6.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="5.0.2" />
-    <PackageReference Include="sabatex.V1C77" Version="6.0.5" />
+    <PackageReference Include="sabatex.V1C77" Version="6.0.6" />
   </ItemGroup>
 
   <ItemGroup>

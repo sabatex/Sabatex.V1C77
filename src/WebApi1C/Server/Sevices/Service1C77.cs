@@ -113,25 +113,28 @@ namespace WebApi1C.Server.Services
                         runTime = DateTime.Now;
                         try
                         {
-                            if (File.Exists(_metadataFile))
-                            {
-                                var s = File.ReadAllText(_metadataFile);
-                                rootMetadata = System.Text.Json.JsonSerializer.Deserialize<RootMetadata1C77>(s);
-                            }
-                            // get from 1c values
-                            var mc = MetadataBuilder.GetMetadataDescriptor(connection);
+                            //if (File.Exists(_metadataFile))
+                            //{
+                            //    var s = File.ReadAllText(_metadataFile);
+                            //    rootMetadata = System.Text.Json.JsonSerializer.Deserialize<RootMetadata1C77>(s);
+                            //}
+                            //// get from 1c values
+                            //var mc = MetadataBuilder.GetMetadataDescriptor(connection);
 
-                            if (mc!= rootMetadata?.Id)
-                            {
-                                // ather config clear cashe
-                                rootMetadata = MetadataBuilder.GetMetadata(connection);
-                                var options = new System.Text.Json.JsonSerializerOptions
-                                {
-                                    Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
-                                };
-                                var s = System.Text.Json.JsonSerializer.Serialize(rootMetadata, options);
-                                File.WriteAllText(_metadataFile, s);
-                            }
+                            //if (mc!= rootMetadata?.Id)
+                            //{
+                            //    // ather config clear cashe
+                            //    rootMetadata = MetadataBuilder.GetMetadata(connection);
+                            //    var options = new System.Text.Json.JsonSerializerOptions
+                            //    {
+                            //        Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
+                            //    };
+                            //    var s = System.Text.Json.JsonSerializer.Serialize(rootMetadata, options);
+                            //    File.WriteAllText(_metadataFile, s);
+                            //}
+
+
+                            rootMetadata = MetadataBuilder.GetMetadata(connection);
                             _connection = connection;
                         }
                         catch (Exception e)
@@ -194,7 +197,7 @@ namespace WebApi1C.Server.Services
                 result.Add("Родитель", string.IsNullOrWhiteSpace(parent["Код"] as string) && string.IsNullOrWhiteSpace(parent["Наименование"] as string) ? "" : parent);
             }
             if (!string.IsNullOrWhiteSpace(metadata.Владелец))
-                result.Add("Владелец", GetCatalogItem(catalog.Owner, rootMetadata.Справочники[metadata.Владелец.ToLower()], level + 1));
+                result.Add("Владелец", GetCatalogItem(catalog.Owner, rootMetadata.Справочники[metadata.Владелец], level + 1));
             if (level > 0) return result;
             foreach (var m in metadata.Attributes)
             {
@@ -277,7 +280,7 @@ namespace WebApi1C.Server.Services
                         {
                             kindName = attribute.Вид;
                         }
-                        var meta = rootMetadata.Справочники[kindName.ToLower()];
+                        var meta = rootMetadata.Справочники[kindName];
                         return GetCatalogItem(cat, meta, level + 1);
                     case "Перечисление":
                         ICOMObject1C77 enumVal;
@@ -395,7 +398,7 @@ namespace WebApi1C.Server.Services
             }
 
 
-            string[] sl = selector.Trim().ToLower().Split('.');
+            string[] sl = selector.Trim().Split('.');
 
             // documents
             if (tokenDocument.Contains(sl[0]))
@@ -493,7 +496,7 @@ namespace WebApi1C.Server.Services
 
         public object GetConstant(string name)
         {
-            if (rootMetadata.Константы.TryGetValue(name.ToLower(), out var constant))
+            if (rootMetadata.Константы.TryGetValue(name, out var constant))
             {
                 lock (connectionLock)
                 {

@@ -32,7 +32,7 @@ namespace WebApi1C.Server.Controllers.V1C77
         {
             if (string.IsNullOrWhiteSpace(documentName))
                 throw new Exception("Try get catalog with out name");
-            if (_service1C77.Metadata.Документы.TryGetValue(documentName.ToLower(), out var metadata))
+            if (_service1C77.Metadata.Документы.TryGetValue(documentName, out var metadata))
             {
                 DocumentFilter documentFilter = new DocumentFilter {BeginPeriod=beginDate,EndPeriod=endDate, Top=top};
                 return Ok(_service1C77.GetDocumentItems(metadata,documentFilter));

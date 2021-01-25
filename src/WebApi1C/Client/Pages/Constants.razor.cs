@@ -21,7 +21,8 @@ namespace WebApi1C.Client.Pages
 
         protected override async Task OnParametersSetAsync()
         {
-            constantMetadata = (await service1C77.GetMetadata()).Константы;
+            var metadata = await service1C77.GetMetadata();
+            constantMetadata = metadata.Константы;
             constantValues = await Http.GetFromJsonAsync<Dictionary<string, object>>("api/v1c77/constants");
         }
     }

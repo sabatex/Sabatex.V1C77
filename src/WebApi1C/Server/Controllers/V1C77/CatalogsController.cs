@@ -57,7 +57,7 @@ namespace WebApi1C.Server.Controllers.V1C77
         {
             if (string.IsNullOrWhiteSpace(catalogName))
                 throw new Exception("Try get catalog with out name");
-            if (_service1C77.Metadata.Справочники.TryGetValue(catalogName.ToLower(), out var metadata))
+            if (_service1C77.Metadata.Справочники.TryGetValue(catalogName, out var metadata))
             {
                 if (string.IsNullOrWhiteSpace(catalogId))
                 {
