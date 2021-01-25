@@ -3,7 +3,7 @@ name: sabatex.V1C77.Models
 on:
   push:
     branches: 
-      - main
+      - master
     paths:
       - 'src/sabatex.V1C77.Models/sabatex.V1C77.Models.csproj'
 
