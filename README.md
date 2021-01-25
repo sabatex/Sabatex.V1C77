@@ -9,7 +9,7 @@
  Что может API ?
    1. Читать Метаданные, Константы, Справочники,Документы ...
    2. API использует проверенную временем библиотеку для доступа по OLE (COM) к 1С7.7
-			https://github.com/sabatex/1C77/src/sabatex.V1C77
+			https://github.com/sabatex/1C77/tree/master/src/sabatex.V1C77
 
 Что нужно для запуска API?
    1. Windows 7 и выше;
