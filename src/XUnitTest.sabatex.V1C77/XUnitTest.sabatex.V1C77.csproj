@@ -31,7 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\sabatex.V1C77.Models\sabatex.V1C77.Models.csproj" />
     <ProjectReference Include="..\sabatex.V1C77\sabatex.V1C77.csproj" />
   </ItemGroup>
 

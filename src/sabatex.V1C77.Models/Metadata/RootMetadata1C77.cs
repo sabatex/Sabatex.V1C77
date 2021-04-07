@@ -28,6 +28,28 @@ namespace sabatex.V1C77.Models.Metadata
         public Dictionary<string, DocummentMetadata1C77> Документы { get; set; }
         public Dictionary<string, EnumMetadata1C77> Перечисления { get; set; }
         //public Dictionary<string, PlanCountMetadata1C77> ПланСчетов { get; set; }
+        public static string[] ObjectNames = new string[]
+        {
+            "Константы","Справочники","ОбщиеРеквизитыДокумента","Документы","Перечисления"
+        };
+
+        public object this[string name] 
+        {
+            get {
+                switch (name)
+                {
+                    case "Константы":return Константы;
+                    case "Справочники":return Справочники;
+                    case "ОбщиеРеквизитыДокумента":return ОбщиеРеквизитыДокумента;
+                    case "Документы":return Документы;
+                    case "Перечисления":return Перечисления;
+                    default:
+                        throw new KeyNotFoundException($"He існує ключа {name}");
+                }
+            }
+        
+        }
+
         
     }
 }
