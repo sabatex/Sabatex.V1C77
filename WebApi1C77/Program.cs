@@ -21,6 +21,7 @@ namespace WebApi1C77
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("https://*:5501");
                 });
     }
 }
