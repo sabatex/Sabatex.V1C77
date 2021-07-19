@@ -1,4 +1,7 @@
-﻿using System;
+﻿// Copyright (c)  Serhiy Lakas.
+// Licensed under the MIT license.
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
