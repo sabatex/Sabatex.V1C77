@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿// Copyright (c)  Serhiy Lakas.
+// Licensed under the MIT license.
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using sabatex.V1C77.Models.Metadata;

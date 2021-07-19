@@ -1,3 +1,5 @@
+// Copyright (c)  Serhiy Lakas.
+// Licensed under the MIT license.
 using Microsoft.AspNetCore.Mvc.Testing;
 using sabatex.V1C77.Models.Metadata;
 using System;

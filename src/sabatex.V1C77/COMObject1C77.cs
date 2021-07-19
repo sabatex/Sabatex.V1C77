@@ -1,4 +1,6 @@
-﻿using sabatex.V1C77.Models;
+﻿// Copyright (c)  Serhiy Lakas.
+// Licensed under the MIT license.
+using sabatex.V1C77.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

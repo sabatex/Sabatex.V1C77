@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿// Copyright (c)  Serhiy Lakas.
+// Licensed under the MIT license.
+using Microsoft.Extensions.Configuration;
 using sabatex.V1C77;
 using sabatex.V1C77.Models;
 using System;
