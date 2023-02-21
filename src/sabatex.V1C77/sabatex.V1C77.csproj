@@ -1,14 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFrameworks>netstandard2.1;netstandard2.0;net35</TargetFrameworks>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>Serhiy Lakas</Authors>
     <Product>1C7.7 COM adapter</Product>
     <Company>sabatex on git</Company>
     <Description>COM connection to 1C7.7</Description>
     <Copyright>Serhiy Lakas</Copyright>
-    <Version>6.0.7</Version>
+    <Version>7.0.1</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
     <PackageId>sabatex.V1C77</PackageId>
@@ -25,7 +25,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="sabatex.V1C77.Models" Version="5.1.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="sabatex.V1C77.Models" Version="5.1.3" />
   </ItemGroup>
 
 </Project>

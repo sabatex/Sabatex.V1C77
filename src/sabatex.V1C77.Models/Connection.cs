@@ -18,12 +18,9 @@ namespace sabatex.V1C77.Models
     public class Connection
     {
         public const EPlatform1C Platform1CV7 = EPlatform1C.V1CEnterprise | EPlatform1C.V77 | EPlatform1C.V77L | EPlatform1C.V77M | EPlatform1C.V77S;
-        public const E1CConfigType ConfigType1C77 = E1CConfigType.Uaservice | E1CConfigType.PUB | E1CConfigType.Inforce | E1CConfigType.Buch;
         public Connection()
         {
             PlatformType = EPlatform1C.V77M;
-            ServerLocation = EServerLocation.File;
-            ConfigType = E1CConfigType.PUB;
             ServerAdress = "Server1C77";
             DataBaseName = "Demo";
             UserName = "admin";
@@ -37,9 +34,6 @@ namespace sabatex.V1C77.Models
         public Guid Id { get; set; }
 
         public virtual EPlatform1C PlatformType { get; set; }
-        public virtual E1CConfigType ConfigType { get; set; }
-
-        public EServerLocation ServerLocation { get; set; }
 
         public string ServerAdress { get; set; }
         public string DataBaseName { get; set; }
@@ -57,14 +51,6 @@ namespace sabatex.V1C77.Models
                 string result = "";
                 switch (PlatformType)
                 {
-                    case EPlatform1C.V82:
-                    case EPlatform1C.V83:
-                        if (ServerLocation == EServerLocation.Server)
-                            result = "srvr=\"" + ServerAdress + "\";ref=\"" + DataBaseName + "\";";
-                        else
-                            result = "file=\"" + DataBasePath + "\";";
-                        result = result + "Usr=\"" + UserName + "\";Pwd=\"" + UserPass + "\";";
-                        if (UseLocalKey) return result + "UseHWLicenses=0;"; else return result + "UseHWLicenses=1;";
                     case EPlatform1C.V1CEnterprise:
                     case EPlatform1C.V77:
                     case EPlatform1C.V77L:

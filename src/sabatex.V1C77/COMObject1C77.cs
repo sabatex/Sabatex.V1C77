@@ -10,7 +10,7 @@ using System.Text;
 
 namespace sabatex.V1C77
 {
-    public class COMObject1C77 : ICOMObject1C77,IGlobalContext,ICatalog1C77,IDisposable,IDocument1C77
+    public partial class COMObject1C77 : ICOMObject1C77,IGlobalContext,IDisposable
     {
         /// <summary>
         /// mark object then disposed
@@ -164,7 +164,12 @@ namespace sabatex.V1C77
             }
         }
     
-    
+        /// <summary>
+        /// Connected to 1C7.7
+        /// </summary>
+        /// <param name="con"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public static COMObject1C77 CreateConnection(Connection con)
         {
             if ((con.PlatformType & Connection.Platform1CV7) == 0)
@@ -221,6 +226,14 @@ namespace sabatex.V1C77
             }
             return result;
         }
+
+
+        COMObject1C77 CreateObject(string objectName)
+        {
+            return Method<COMObject1C77>("CreateObject", objectName);
+        }
+
+
 
 
     }
