@@ -79,6 +79,7 @@ namespace sabatex.V1C77
                         return nullValue;
                     else
                         return count.GetProperty<string>("Код");
+                default: return nullValue;
             }
             throw new Exception($"Error load {attribute}");
         }
