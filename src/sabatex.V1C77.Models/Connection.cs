@@ -21,11 +21,9 @@ namespace sabatex.V1C77.Models
         public Connection()
         {
             PlatformType = EPlatform1C.V77M;
-            ServerAdress = "Server1C77";
-            DataBaseName = "Demo";
+            DataBasePath = @"C:\";
             UserName = "admin";
             UserPass = "******";
-            UseLocalKey = false;
             Exclusive = false;
             Id = Guid.NewGuid();
         }
@@ -35,13 +33,9 @@ namespace sabatex.V1C77.Models
 
         public virtual EPlatform1C PlatformType { get; set; }
 
-        public string ServerAdress { get; set; }
-        public string DataBaseName { get; set; }
-
         public string DataBasePath { get; set; }
         public string UserName { get; set; }
         public string UserPass { get; set; }
-        public bool UseLocalKey { get; set; }
         public bool Exclusive { get; set; }
 
         public string StringConnection

@@ -8,7 +8,7 @@
     <Company>sabatex on git</Company>
     <Description>COM connection to 1C7.7</Description>
     <Copyright>Serhiy Lakas</Copyright>
-    <Version>7.0.2</Version>
+    <Version>7.0.3</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
     <PackageId>sabatex.V1C77</PackageId>
