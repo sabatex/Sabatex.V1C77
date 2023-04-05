@@ -167,6 +167,13 @@ namespace sabatex.V1C77
             {
                 result.Add(attribute.Идентификатор, Get1CAttribute(rootMetadata, attribute, document, level + 1));
             }
+            // common atributes
+            foreach (var attribute in rootMetadata.ОбщиеРеквизитыДокумента.Values)
+            {
+                result.Add(attribute.Идентификатор, Get1CAttribute(rootMetadata, attribute, document, level + 1));
+            }
+
+            
             var table = new List<Dictionary<string, object>>();
             if (document.SelectLines())
             {
