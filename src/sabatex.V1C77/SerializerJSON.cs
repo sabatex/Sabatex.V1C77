@@ -192,7 +192,17 @@ namespace sabatex.V1C77
 
             return result;
         }
-        public static string SerializeJSON<T>(this RootMetadata1C77 rootMetadata, T obj,string objectName)
+        /// <summary>
+        /// Serialize 1C7.7 object to JSON
+        /// </summary>
+        /// <typeparam name="T">ICatalog1C77 or IDocument1C77</typeparam>
+        /// <param name="rootMetadata"> root metadata</param>
+        /// <param name="obj">Serialized object</param>
+        /// <param name="objectName"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <exception cref="Exception"></exception>
+        public static string SerializeJSON<T>(this RootMetadata1C77 rootMetadata, T obj,string objectName,Dictionary<string,object> externalData = null )
         {
             Dictionary<string, object> result;
             if (obj== null)
@@ -203,6 +213,7 @@ namespace sabatex.V1C77
                 result = getDocumentProperties(rootMetadata, (IDocument1C77)obj, objectName, 0);
             else
                 throw new Exception("Unsupported type");
+            if (externalData != null) result.Add("externalData",externalData);
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
         }
     }
