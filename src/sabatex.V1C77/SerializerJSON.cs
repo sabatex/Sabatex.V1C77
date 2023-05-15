@@ -284,7 +284,7 @@ namespace sabatex.V1C77
 
         }
 
-        public static string QueryAccountSaldo(this RootMetadata1C77 rootMetadata,IGlobalContext global,string accCode,DateTime date)
+        public static string QueryAccountSaldoAsJSON(this RootMetadata1C77 rootMetadata,IGlobalContext global,string accCode,DateTime date)
         {
             StringBuilder result = new StringBuilder("{");
             result.Append($"\"Счет\":\"{accCode}\",");
