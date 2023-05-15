@@ -34,9 +34,6 @@ namespace sabatex.V1C77
         {
             return CreateObject($"Документ.{documentName}") as IDocument1C77;
         }
-
-
-
         #endregion IGlobalContext
 
     }

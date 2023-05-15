@@ -8,7 +8,7 @@
     <Company>sabatex on git</Company>
     <Description>COM connection to 1C7.7</Description>
     <Copyright>Serhiy Lakas</Copyright>
-    <Version>7.0.6</Version>
+    <Version>7.0.7</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
     <PackageId>sabatex.V1C77</PackageId>
@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="sabatex.Extensions" Version="6.0.1" />
     <PackageReference Include="sabatex.V1C77.Models" Version="5.1.4" />
   </ItemGroup>
 

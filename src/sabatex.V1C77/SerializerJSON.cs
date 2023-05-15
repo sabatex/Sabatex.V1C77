@@ -1,7 +1,9 @@
-﻿using sabatex.V1C77.Models;
+﻿using sabatex.Extensions.ClassExtensions;
+using sabatex.V1C77.Models;
 using sabatex.V1C77.Models.Metadata;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace sabatex.V1C77
@@ -217,5 +219,113 @@ namespace sabatex.V1C77
             if (externalData != null) result.Add("externalData",externalData);
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
         }
+
+
+        static void SerializeSaldo(IGlobalContext global, RootMetadata1C77 rootMetadata, StringBuilder result, double subNumber, double countSunconto, COMObject1C77 acc, COMObject1C77 b, double activeSheet, bool quantitative)
+        {
+            string subcontoType = acc.Method<COMObject1C77>("ВидСубконто", subNumber).Method<string>("ТипСубконто");
+            result.Append("\"items\":[");
+            b.Method<object>("ВыбратьСубконто", subNumber);
+            string[] ts = subcontoType.Split('.');
+            bool first = true;
+            while (b.Method<bool>("ПолучитьСубконто", subNumber))
+            {
+                if (first)
+                    first = false;
+                else
+                    result.Append(',');
+
+                result.Append('{');
+                string s = string.Empty;
+                switch (ts[0])
+                {
+
+                    case "Справочник":
+                        s = rootMetadata.SerializeJSON(b.Method<ICatalog1C77>("Субконто", subNumber), ts[1], null, true);
+                        break;
+                    case "Документ":
+                        s = rootMetadata.SerializeJSON(b.Method<IDocument1C77>("Субконто", subNumber), ts[1], null, true);
+                        break;
+                }
+                result.Append($"\"itemvalue\":{s}");
+                if (subNumber == countSunconto)
+                {
+                    result.Append(',');
+
+                    if (activeSheet == 1 || activeSheet == 3)
+                    {
+                        if (quantitative)
+                            result.Append($"\"колСКД\":{b.Method<double>("СКД", 3).ToString("R", CultureInfo.InvariantCulture)},");
+                        result.Append($"\"СКД\":{b.Method<double>("СКД", 1).ToString("R", CultureInfo.InvariantCulture)}");
+                        if (activeSheet == 3)
+                            result.Append(',');
+
+                    }
+
+                    if (activeSheet == 2 || activeSheet == 3)
+                    {
+                        if (quantitative)
+                            result.Append($"\"колСКК\":{b.Method<double>("СКК", 3).ToString("R", CultureInfo.InvariantCulture)},");
+                        result.Append($"\"СКК\":{b.Method<double>("СКК", 1).ToString("R", CultureInfo.InvariantCulture)}");
+                    }
+
+
+                }
+                else
+                {
+                    result.Append(',');
+                    SerializeSaldo(global, rootMetadata, result, subNumber + 1, countSunconto, acc, b, activeSheet, quantitative);
+                }
+                result.Append('}');
+
+            }
+
+            result.Append(']');
+
+        }
+
+        public static string QueryAccountSaldo(this RootMetadata1C77 rootMetadata,IGlobalContext global,string accCode,DateTime date)
+        {
+            StringBuilder result = new StringBuilder("{");
+            result.Append($"\"Счет\":\"{accCode}\",");
+            string periodStr = date.Year.ToString() + date.Month.ToString().PadLeft(2, '0') + date.Day.ToString().PadLeft(2, '0');
+            result.Append($"\"НаДату\":\"{periodStr}\",");
+
+            var b = global.CreateObject("БухгалтерскиеИтоги");
+            var accPlan = global.GetProperty<COMObject1C77>("ПланыСчетов").Method<COMObject1C77>("ЗначениеПоИдентификатору", "Основной");
+            var acc = global.Method<COMObject1C77>("СчетПоКоду", accCode, accPlan);
+
+            var quantitative = acc.GetProperty<bool>("Количественный");
+            result.Append($"\"Количественный\":{quantitative.ToString().ToLower()},");
+            var offBalanceSheet = acc.GetProperty<bool>("Забалансовый");
+            result.Append($"\"Забалансовый\":{offBalanceSheet.ToString().ToLower()},");
+            var activeSheet = acc.GetProperty<double>("Активный");
+            result.Append($"\"Активный\":{activeSheet},");
+            var countSunconto = acc.Method<double>("КоличествоСубконто");
+            result.Append($"\"КоличествоСубконто\":{countSunconto},");
+
+            b.Method<object>("ВключатьСубсчета", -1, 0);
+            result.Append($"\"ТипыСубконто\":[");
+            var first = true;
+            for (double i = 1; i <= countSunconto; i++)
+            {
+                b.Method<object>("ИспользоватьСубконто", acc.Method<COMObject1C77>("ВидСубконто", i));
+                string subcontoType = acc.Method<COMObject1C77>("ВидСубконто", i).Method<string>("ТипСубконто");
+                if (first)
+                    first = false;
+                else result.Append(',');
+                result.Append($"\"{subcontoType}\"");
+            }
+            result.Append("],");
+
+            b.Method<object>("ВыполнитьЗапрос", date.EndOfDay(), date.EndOfDay(), acc);
+
+            if (countSunconto > 0)
+                SerializeSaldo(global, rootMetadata, result, 1, countSunconto, acc, b, activeSheet, quantitative);
+            result.Append('}');
+            return result.ToString();
+        }
+    
+    
     }
 }
