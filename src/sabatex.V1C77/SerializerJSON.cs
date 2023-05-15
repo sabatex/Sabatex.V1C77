@@ -202,15 +202,16 @@ namespace sabatex.V1C77
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="Exception"></exception>
-        public static string SerializeJSON<T>(this RootMetadata1C77 rootMetadata, T obj,string objectName,Dictionary<string,object> externalData = null )
+        public static string SerializeJSON<T>(this RootMetadata1C77 rootMetadata, T obj,string objectName,Dictionary<string,object> externalData = null, bool headerOnly = false)
         {
+            int level = headerOnly ? 1 : 0;
             Dictionary<string, object> result;
             if (obj== null)
                 throw new ArgumentNullException(nameof(obj));
             if (typeof(T) == typeof(ICatalog1C77))
-                result = getCatalogProperties(rootMetadata, (ICatalog1C77)obj, objectName, 0);
+                result = getCatalogProperties(rootMetadata, (ICatalog1C77)obj, objectName, level);
             else if (typeof(T) == typeof(IDocument1C77))
-                result = getDocumentProperties(rootMetadata, (IDocument1C77)obj, objectName, 0);
+                result = getDocumentProperties(rootMetadata, (IDocument1C77)obj, objectName, level);
             else
                 throw new Exception("Unsupported type");
             if (externalData != null) result.Add("externalData",externalData);
