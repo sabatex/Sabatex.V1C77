@@ -163,7 +163,7 @@ namespace sabatex.V1C77
             result.Add("НомерДок", document.DocNum);
             result.Add("ПометкаУдаления", document.DeleteMark);
             result.Add("Проведен", document.IsTransacted);
-            if (level > 1) return result;
+            if (level > 0) return result;
             var metadata = rootMetadata.Документы[documentName];
             foreach (var attribute in metadata.РеквизитШапки.Values)
             {
@@ -244,7 +244,11 @@ namespace sabatex.V1C77
                         s = rootMetadata.SerializeJSON(b.Method<ICatalog1C77>("Субконто", subNumber), ts[1], null, true);
                         break;
                     case "Документ":
-                        s = rootMetadata.SerializeJSON(b.Method<IDocument1C77>("Субконто", subNumber), ts[1], null, true);
+                        IDocument1C77 doc = b.Method<IDocument1C77>("Субконто", subNumber);
+                        if (ts.Length == 2)
+                            s = rootMetadata.SerializeJSON(doc, ts[1], null, true);
+                        else
+                            s = rootMetadata.SerializeJSON(doc,doc.Kind, null, true);
                         break;
                 }
                 result.Append($"\"itemvalue\":{s}");
