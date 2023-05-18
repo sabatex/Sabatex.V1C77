@@ -216,7 +216,11 @@ namespace sabatex.V1C77
                 result = getDocumentProperties(rootMetadata, (IDocument1C77)obj, objectName, level);
             else
                 throw new Exception("Unsupported type");
-            if (externalData != null) result.Add("externalData",externalData);
+            if (externalData != null)
+            {
+                if (externalData.Count>0)
+                    result.Add("externalData", externalData);
+            }
             return Newtonsoft.Json.JsonConvert.SerializeObject(result);
         }
 
