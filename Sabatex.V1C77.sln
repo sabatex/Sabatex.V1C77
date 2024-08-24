@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33403.182
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "sabatex.V1C77.Models", "sabatex.V1C77.Models\sabatex.V1C77.Models.csproj", "{5B6C6836-5E7B-48A8-9FD3-D5A365CCC2CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sabatex.V1C77.Models", "sabatex.V1C77.Models\Sabatex.V1C77.Models.csproj", "{5B6C6836-5E7B-48A8-9FD3-D5A365CCC2CF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sabatex.V1C77", "sabatex.V1C77\Sabatex.V1C77.csproj", "{C16306D1-ECCF-4367-95BC-5FA128FE1F1C}"
 EndProject
