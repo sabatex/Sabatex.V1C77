@@ -32,7 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\sabatex.V1C77\sabatex.V1C77.csproj" />
+    <ProjectReference Include="..\sabatex.V1C77\Sabatex.V1C77.csproj" />
   </ItemGroup>
 
   <ItemGroup>

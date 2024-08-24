@@ -1,21 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;netstandard2.0;net35</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows;net7.0-windows;net4.6.2;net35</TargetFrameworks>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>Serhiy Lakas</Authors>
     <Product>1C7.7 COM adapter</Product>
     <Company>sabatex on git</Company>
     <Description>COM connection to 1C7.7</Description>
     <Copyright>Serhiy Lakas</Copyright>
-    <Version>7.0.9</Version>
+    <Version>8.0.2</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
-    <PackageId>sabatex.V1C77</PackageId>
-    <AssemblyName>sabatex.V1C77</AssemblyName>
-    <RootNamespace>sabatex.V1C77</RootNamespace>
-
-    <PackageReleaseNotes>Add SetProperty</PackageReleaseNotes>
+    <PackageId>Sabatex.V1C77</PackageId>
+    <AssemblyName>Sabatex.V1C77</AssemblyName>
+    <RootNamespace>Sabatex.V1C77</RootNamespace>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <IncludeSymbols>true</IncludeSymbols>
@@ -29,5 +28,7 @@
     <PackageReference Include="sabatex.Extensions" Version="6.0.1" />
     <PackageReference Include="sabatex.V1C77.Models" Version="5.1.4" />
   </ItemGroup>
-
+	<ItemGroup>
+		<None Include="README.md" Pack="true" PackagePath="\"/>
+	</ItemGroup>
 </Project>
