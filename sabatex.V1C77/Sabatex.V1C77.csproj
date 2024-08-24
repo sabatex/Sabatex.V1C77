@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0-windows;net7.0-windows;net4.6.2;net35</TargetFrameworks>
+    <TargetFrameworks>net6.0-windows;net8.0-windows;net4.6.2;net35</TargetFrameworks>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Authors>Serhiy Lakas</Authors>
     <Product>1C7.7 COM adapter</Product>
