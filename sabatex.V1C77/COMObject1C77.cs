@@ -28,7 +28,9 @@ namespace sabatex.V1C77
         /// COM object handler
         /// </summary>
         internal object _handle;
-        private IGlobalContext globalContext;
+        private Connection _connection=null;
+
+        protected IGlobalContext globalContext;
         
         private COMObject1C77(COMObject1C77 owner, object handle)
         {
@@ -133,6 +135,7 @@ namespace sabatex.V1C77
 
         public IGlobalContext GlobalContext => globalContext;
 
+        public Connection Connection => (globalContext as COMObject1C77)._connection;
 
 
         /// <summary>
@@ -206,6 +209,7 @@ namespace sabatex.V1C77
                                           + ((con.UserPass != "") ? " /P" + con.UserPass : "");
 
             var result = new COMObject1C77(null, handle);
+            result._connection = con;
             try
             {
                 if (!result.Method<bool>("Initialize", result.Method<object>("RMTrade"), stringConnection, "NO_SPLASH_SHOW"))

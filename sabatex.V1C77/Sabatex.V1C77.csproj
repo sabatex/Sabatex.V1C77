@@ -8,7 +8,7 @@
     <Company>sabatex on git</Company>
     <Description>COM connection to 1C7.7</Description>
     <Copyright>Serhiy Lakas</Copyright>
-    <Version>8.0.2</Version>
+    <Version>8.0.4</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageTags>#1C7 #1C77 #1C7.7</PackageTags>
     <PackageId>Sabatex.V1C77</PackageId>
@@ -21,6 +21,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <RepositoryUrl>https://github.com/sabatex/V1C77.git</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
+    <UserSecretsId>951a292b-9b82-4303-907e-6171d2e00ea3</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -29,6 +30,7 @@
     <PackageReference Include="sabatex.V1C77.Models" Version="5.1.4" />
   </ItemGroup>
 	<ItemGroup>
-		<None Include="README.md" Pack="true" PackagePath="\"/>
+		<None Include="../README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
+	
 </Project>
