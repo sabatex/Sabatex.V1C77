@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Worker">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-sabatex.V1C77.ExchangeService-d9fe6b5f-4afb-4eb0-826b-936cf0cace52</UserSecretsId>
+    <RootNamespace>Sabatex.V1C77.ExchangeService</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
+    <PackageReference Include="Sabatex.ObjectsExchange.HttpClientConnector" Version="10.0.0-alpha" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\sabatex.V1C77\Sabatex.V1C77.csproj" />
+  </ItemGroup>
+</Project>

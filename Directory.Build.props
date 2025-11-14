@@ -1,0 +1,7 @@
+<Project>
+	<PropertyGroup>
+		<!-- Базовий шлях для всіх вихідних файлів -->
+		<BaseOutputPath>E:\builds\$(MSBuildProjectName)\bin\</BaseOutputPath>
+		<BaseIntermediateOutputPath>E:\builds\$(MSBuildProjectName)\obj\</BaseIntermediateOutputPath>
+	</PropertyGroup>
+</Project>
